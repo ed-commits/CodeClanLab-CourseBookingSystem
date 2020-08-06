@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "customer")
+@Table(name = "customers")
 
 public class Customer {
 
@@ -25,9 +25,8 @@ public class Customer {
   @Column(name = "age")
   private int age;
 
-
+  @JsonIgnoreProperties({"customers"})
   @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
-  @JsonIgnoreProperties({"customer"})
   private List<Booking> bookings;
 
   public Customer(String name, String town, int age) {

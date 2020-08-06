@@ -1,17 +1,17 @@
 package com.codeclan.example.codeclanbookingsystem.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "booking")
-
+@Table(name = "bookings")
 public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @Column(name = "date")
     private String date;
@@ -22,10 +22,12 @@ public class Booking {
         this.course = course;
     }
 
+    @JsonIgnoreProperties({"bookings"})
     @ManyToOne
     @JoinColumn(name="customer_id", nullable = false)
     private Customer customer;
 
+    @JsonIgnoreProperties({"bookings"})
     @ManyToOne
     @JoinColumn(name="course_id", nullable = false)
     private Course course;
