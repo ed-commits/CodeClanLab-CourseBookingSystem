@@ -41,6 +41,6 @@ public class DataLoader implements ApplicationRunner {
 
         bookingRepository.save(new Booking("2020-09-01", customerRepository.findByName("Harrison"), courseRepository.findByName("Software Development")));
         bookingRepository.save(new Booking("2020-09-01", customerRepository.findByName("Harrison"), courseRepository.findByName("Data Science")));
-        bookingRepository.save(new Booking("2020-09-01", customerRepository.findByName("Harrison"), courseRepository.findByName("Web Development")));
+        bookingRepository.save(new Booking("2020-09-02", customerRepository.findByName("Harrison"), courseRepository.findByName("Web Development")));
     }
 }
