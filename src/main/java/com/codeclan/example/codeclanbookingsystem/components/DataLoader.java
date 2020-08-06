@@ -1,6 +1,8 @@
 package com.codeclan.example.codeclanbookingsystem.components;
 
+import com.codeclan.example.codeclanbookingsystem.models.Booking;
 import com.codeclan.example.codeclanbookingsystem.models.Course;
+import com.codeclan.example.codeclanbookingsystem.models.Customer;
 import com.codeclan.example.codeclanbookingsystem.repositories.BookingRepository;
 import com.codeclan.example.codeclanbookingsystem.repositories.CourseRepository;
 import com.codeclan.example.codeclanbookingsystem.repositories.CustomerRepository;
@@ -28,5 +30,15 @@ public class DataLoader implements ApplicationRunner {
         courseRepository.save(new Course("Data Structure", "Glasgow", 3));
         courseRepository.save(new Course("Algorithms", "Glasgow", 4));
         courseRepository.save(new Course("FrontEnd", "Glasgow", 5));
+
+        customerRepository.save(new Customer("Harrison", "Edinburgh", 30));
+        customerRepository.save(new Customer("Alex", "Edinburgh", 32));
+        customerRepository.save(new Customer("John", "Edinburgh", 33));
+
+        customerRepository.save(new Customer("Paul", "Glasgow", 20));
+        customerRepository.save(new Customer("Jon", "Glasgow", 22));
+        customerRepository.save(new Customer("George", "Glasgow", 23));
+
+        bookingRepository.save(new Booking("2020-09-01", customerRepository.findByName("Harrison"), courseRepository.findByName("Software Development")));
     }
 }
