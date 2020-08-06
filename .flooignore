@@ -4,3 +4,6 @@ tmp
 vendor
 .idea/workspace.xml
 .idea/misc.xml
+db/booking_db.mv.db
+db/booking_db.trace.db
+db/booking_db
