@@ -43,4 +43,10 @@ class CodeclanBookingsystemApplicationTests {
 		List<Customer> found = customerRepository.findCustomerByBookingsCourse(courseRepository.findByName("Software Development"));
 		assertEquals(1, found.size());
 	}
+
+	@Test
+	void testFindCourseByCustomer() {
+		List<Course> found = courseRepository.findByBookingsCustomer(customerRepository.findByName("Harrison"));
+		assertEquals(3, found.size());
+	}
 }
