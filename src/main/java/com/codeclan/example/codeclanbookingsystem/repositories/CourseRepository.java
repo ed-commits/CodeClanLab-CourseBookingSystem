@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface CourseRepository extends JpaRepository<Course, Long> {
     Course findByName(String name);
+    Course findByNameIgnoreCase(String name);
     List<Course> findByRating(Integer rating);
     List<Course> findByBookingsCustomer(Customer customer);
-    List<Course> findByBookingsCustomerName(String customerName);
+    List<Course> findByBookingsCustomerNameIgnoreCase(String customerName);
 }
