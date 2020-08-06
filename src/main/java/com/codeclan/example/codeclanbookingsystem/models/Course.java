@@ -1,5 +1,7 @@
 package com.codeclan.example.codeclanbookingsystem.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ public class Course {
     private Integer rating;
 
     @OneToMany(mappedBy = "courses", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"bookings"})
     private List<Booking> bookings;
 
     public Course(String name, String town, Integer rating) {
@@ -29,6 +32,8 @@ public class Course {
         this.rating = rating;
         this.bookings = new ArrayList<>();
     }
+
+    public Course() {}
 
     public Long getId() {
         return id;
